@@ -4,17 +4,17 @@ cd /my-eth
 
 ## 初始化
 cd /my-eth
-/my-eth/geth --datadir /my-eth/data init /my-eth/genesis_sync.json
-/my-eth/geth --datadir /my-eth/data init /my-eth/genesis_SmartContract.json
+/my-eth/geth --datadir /my-eth/data init /my-eth/genesis.json
 
 ## 启动私链
 cd /my-eth
 nohup /my-eth/geth --datadir /my-eth/data --port "30303" --networkid "96178"                                               \
-    --minerthreads 1 --nodiscover --identity "private etherum"                                                             \
+    --miner.threads "1" --nodiscover --identity "private etherum"                                                          \
     --rpc --rpcaddr 0.0.0.0  --rpcport 8545 --rpcapi "eth,net,web3,miner,admin,debug,txpool,personal" --rpccorsdomain "*"  \
-    --ws  --ws.addr  0.0.0.0 --ws.port 8546 --ws.api "eth,net,web3,miner,admin,debug,txpool,personal" --ws.origins    "*" \
+    --ws  --ws.addr  0.0.0.0 --ws.port 8546 --ws.api "eth,net,web3,miner,admin,debug,txpool,personal" --ws.origins    "*"  \
     --graphql --graphql.corsdomain "*"    --graphql.vhosts "*"  \
     --allow-insecure-unlock &
+
 
 
 cd /my-eth
@@ -52,8 +52,8 @@ web3.fromWei('21000000000000', 'finney1');
 ```
 
 admin.nodeInfo.enode
-admin.addPeer("enode://56428c5467134538c55949608c772e838481770650b257fba7b056008d0fbccf3960ef54163ae9e11e093b1cff295373d99b0966361e8baaee7564e53106c4a6@39.105.153.126:30303?discport=0")
-admin.addPeer("enode://56428c5467134538c55949608c772e838481770650b257fba7b056008d0fbccf3960ef54163ae9e11e093b1cff295373d99b0966361e8baaee7564e53106c4a6@172.21.117.53:30303?discport=0")
-admin.addPeer("enode://07ef41d2f93137372121e253a69dd44647dff3625b30009ba146b6d2577e1778c737c54fe3d3ac21661af8e61828a99ed36a391d53326cdeea205730f21cabd6@39.105.18.23:30303?discport=0")
-admin.addPeer("enode://07ef41d2f93137372121e253a69dd44647dff3625b30009ba146b6d2577e1778c737c54fe3d3ac21661af8e61828a99ed36a391d53326cdeea205730f21cabd6@172.21.117.54:30303?discport=0")
+admin.addPeer("enode://c1e5e0d2c5d690326c05346282a088fb96f3829d06d27b33a514a49f82247ffcf0573efdab67ec3019168cc58d892f1a3a4925e9baddc78b348c56a0f2466fa@39.105.153.126:30303?discport=0")
+admin.addPeer("enode://c1e5e0d2c5d690326c05346282a088fb96f3829d06d27b33a514a49f82247ffcf0573efdab67ec3019168cc58d892f1a3a4925e9baddc78b348c56a0f2466fa@172.21.117.53:30303?discport=0")
+admin.addPeer("enode://14e6185aedf049338abea9d5bfe50a59b2c32243590b2e0def43723b76555d4d4d0b5ffc4c4b5b6b50cd1291ad566e17d05752b9b54be8a27fdebad071cd28dc@39.105.18.23:30303?discport=0")
+admin.addPeer("enode://14e6185aedf049338abea9d5bfe50a59b2c32243590b2e0def43723b76555d4d4d0b5ffc4c4b5b6b50cd1291ad566e17d05752b9b54be8a27fdebad071cd28dc@172.21.117.54:30303?discport=0")
 
