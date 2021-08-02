@@ -17,12 +17,12 @@ personal.unlockAccount(eth.accounts[0],"123456")
 
 token = contract.new(initializer)
 
-token.address   0x259d3584071d0e0bb6bb1fa5d59419e0d629bc14
+token.address   0x77556b45c1bf08ace4e628b39bd52eff2149cc46
 
 
 MyContract = eth.contract(abi)
 
-myContract = MyContract.at("0x259d3584071d0e0bb6bb1fa5d59419e0d629bc14")
+myContract = MyContract.at("0x77556b45c1bf08ace4e628b39bd52eff2149cc46")
 
 myContract.multiply.call(5)
 
