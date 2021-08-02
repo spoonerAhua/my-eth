@@ -1,10 +1,13 @@
 https://blog.csdn.net/sda1_hacker/article/details/104427270
 https://www.cnblogs.com/mhly/p/14024985.html
+发行Token https://www.jianshu.com/p/55908003cbbd
+
 
 npm install -g solc
 npm install -g solc@0.8.6
 npm install -g solc@0.7.5
 npm install -g solc@0.6.3
+npm install -g solc@0.4.8
 
 cd /mnt/e/_git-source/github.com/spoonerAhua/my-eth/.utils/smart_contract
 solcjs --bin --abi test.sol
