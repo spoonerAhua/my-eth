@@ -26,15 +26,15 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/consensus/ethash"
-	"github.com/ethereum/go-ethereum/console/prompt"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/eth"
-	"github.com/ethereum/go-ethereum/eth/ethconfig"
-	"github.com/ethereum/go-ethereum/internal/jsre"
-	"github.com/ethereum/go-ethereum/miner"
-	"github.com/ethereum/go-ethereum/node"
+	"github.com/spoonerAhua/my-eth/common"
+	"github.com/spoonerAhua/my-eth/consensus/ethash"
+	"github.com/spoonerAhua/my-eth/console/prompt"
+	"github.com/spoonerAhua/my-eth/core"
+	"github.com/spoonerAhua/my-eth/eth"
+	"github.com/spoonerAhua/my-eth/eth/ethconfig"
+	"github.com/spoonerAhua/my-eth/internal/jsre"
+	"github.com/spoonerAhua/my-eth/miner"
+	"github.com/spoonerAhua/my-eth/node"
 )
 
 const (

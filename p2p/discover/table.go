@@ -32,10 +32,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/p2p/netutil"
+	"github.com/spoonerAhua/my-eth/common"
+	"github.com/spoonerAhua/my-eth/log"
+	"github.com/spoonerAhua/my-eth/p2p/enode"
+	"github.com/spoonerAhua/my-eth/p2p/netutil"
 )
 
 const (

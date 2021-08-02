@@ -27,11 +27,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/eth/protocols/eth"
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/p2p/msgrate"
+	"github.com/spoonerAhua/my-eth/common"
+	"github.com/spoonerAhua/my-eth/eth/protocols/eth"
+	"github.com/spoonerAhua/my-eth/event"
+	"github.com/spoonerAhua/my-eth/log"
+	"github.com/spoonerAhua/my-eth/p2p/msgrate"
 )
 
 const (

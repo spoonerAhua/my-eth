@@ -21,17 +21,17 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/consensus/ethash"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/core/vm"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/eth/downloader"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/spoonerAhua/my-eth/common"
+	"github.com/spoonerAhua/my-eth/consensus/ethash"
+	"github.com/spoonerAhua/my-eth/core"
+	"github.com/spoonerAhua/my-eth/core/rawdb"
+	"github.com/spoonerAhua/my-eth/core/types"
+	"github.com/spoonerAhua/my-eth/core/vm"
+	"github.com/spoonerAhua/my-eth/crypto"
+	"github.com/spoonerAhua/my-eth/eth/downloader"
+	"github.com/spoonerAhua/my-eth/ethdb"
+	"github.com/spoonerAhua/my-eth/event"
+	"github.com/spoonerAhua/my-eth/params"
 )
 
 var (

@@ -21,9 +21,9 @@ import (
 	"errors"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/spoonerAhua/my-eth/common"
+	"github.com/spoonerAhua/my-eth/core/types"
+	"github.com/spoonerAhua/my-eth/log"
 )
 
 // WaitMined waits for tx to be mined on the blockchain.

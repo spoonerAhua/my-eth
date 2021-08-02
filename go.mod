@@ -1,4 +1,4 @@
-module github.com/ethereum/go-ethereum
+module github.com/spoonerAhua/my-eth
 
 go 1.15
 

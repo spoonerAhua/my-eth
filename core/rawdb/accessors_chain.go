@@ -22,13 +22,13 @@ import (
 	"math/big"
 	"sort"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/spoonerAhua/my-eth/common"
+	"github.com/spoonerAhua/my-eth/core/types"
+	"github.com/spoonerAhua/my-eth/crypto"
+	"github.com/spoonerAhua/my-eth/ethdb"
+	"github.com/spoonerAhua/my-eth/log"
+	"github.com/spoonerAhua/my-eth/params"
+	"github.com/spoonerAhua/my-eth/rlp"
 )
 
 // ReadCanonicalHash retrieves the hash assigned to a canonical block number.

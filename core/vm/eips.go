@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/spoonerAhua/my-eth/params"
 	"github.com/holiman/uint256"
 )
 

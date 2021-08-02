@@ -6,13 +6,13 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/consensus/ethash"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/eth/downloader"
-	"github.com/ethereum/go-ethereum/eth/gasprice"
-	"github.com/ethereum/go-ethereum/miner"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/spoonerAhua/my-eth/common"
+	"github.com/spoonerAhua/my-eth/consensus/ethash"
+	"github.com/spoonerAhua/my-eth/core"
+	"github.com/spoonerAhua/my-eth/eth/downloader"
+	"github.com/spoonerAhua/my-eth/eth/gasprice"
+	"github.com/spoonerAhua/my-eth/miner"
+	"github.com/spoonerAhua/my-eth/params"
 )
 
 // MarshalTOML marshals as TOML.

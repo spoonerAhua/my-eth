@@ -24,11 +24,11 @@ import (
 	"net"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common/mclock"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/p2p/discover/v5wire"
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/p2p/enr"
+	"github.com/spoonerAhua/my-eth/common/mclock"
+	"github.com/spoonerAhua/my-eth/crypto"
+	"github.com/spoonerAhua/my-eth/p2p/discover/v5wire"
+	"github.com/spoonerAhua/my-eth/p2p/enode"
+	"github.com/spoonerAhua/my-eth/p2p/enr"
 )
 
 // readError represents an error during packet reading.

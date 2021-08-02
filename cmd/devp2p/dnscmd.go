@@ -25,11 +25,11 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/console/prompt"
-	"github.com/ethereum/go-ethereum/p2p/dnsdisc"
-	"github.com/ethereum/go-ethereum/p2p/enode"
+	"github.com/spoonerAhua/my-eth/accounts/keystore"
+	"github.com/spoonerAhua/my-eth/common"
+	"github.com/spoonerAhua/my-eth/console/prompt"
+	"github.com/spoonerAhua/my-eth/p2p/dnsdisc"
+	"github.com/spoonerAhua/my-eth/p2p/enode"
 	"gopkg.in/urfave/cli.v1"
 )
 

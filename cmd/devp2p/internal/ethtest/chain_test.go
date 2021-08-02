@@ -21,8 +21,8 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/eth/protocols/eth"
-	"github.com/ethereum/go-ethereum/p2p"
+	"github.com/spoonerAhua/my-eth/eth/protocols/eth"
+	"github.com/spoonerAhua/my-eth/p2p"
 	"github.com/stretchr/testify/assert"
 )
 
