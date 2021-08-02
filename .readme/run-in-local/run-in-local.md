@@ -1,7 +1,10 @@
 # 清理环境
+```
 docker rm -f geth1 geth2 geth3 geth4
+```
 
 # 启动环境
+```
 docker network create geth_network
 cd /mnt/e/_git-source/github.com/spoonerAhua/my-eth/build/bin
 docker run -it --name geth1 -e LANG=C.UTF-8 -p 10303:30303 -p 1545:8545 -v $PWD:/geth_bin --network=geth_network ubuntu:18.04 bash
@@ -11,17 +14,24 @@ docker run -it --name geth4 -e LANG=C.UTF-8 -p 40303:30303 -p 4545:8545 -v $PWD:
 
 apt update
 apt -y install iputils-ping net-tools
+```
 
 # 初始化
+```
 cd /mnt/e/_git-source/github.com/spoonerAhua/my-eth/build/bin
 docker exec -it geth3 bash
 /geth_bin/geth --datadir /geth_data init /geth_bin/genesis_sync.json
 
+```
+
 # 启动私链
+```
 docker exec -it geth1 bash
 /geth_bin/geth --nodiscover --identity "private etherum" --datadir /geth_data --port "30303" --networkid "96178"    \
                --rpc --rpcaddr 0.0.0.0 --rpcport 8545 --rpccorsdomain "*" --rpcapi "eth,net,web3,miner,admin,debug,txpool,personal" \
                --allow-insecure-unlock
+
+```
 
 # 进入控制台
 ```
@@ -32,6 +42,7 @@ docker exec -it geth4 bash
 
 /geth_bin/geth attach ipc:/geth_data/geth.ipc
 admin.nodeInfo.enode
+
 ```
 
 # 以太坊操作
@@ -60,11 +71,14 @@ eth.syncing 查看同步状态
 web3.toWei(1,"ether")
 web3.fromWei(1,"ether")
 web3.fromWei('21000000000000', 'finney1');
+
 ```
 
+# 添加节点
+```
 admin.nodeInfo.enode
-admin.addPeer("enode://b58d2bb1ba045f15482bc49e4529fad78271da775e8185bf00bdb43a2478de5d9d5abdb3926dcf41683c5c4793ea7bafb07ec24b9b7db4a12803fe38e51fe522@172.19.0.2:30303?discport=0")
-admin.addPeer("enode://bade9f99a8203b57d7a13a7bdab609637268dc4397960553f5b934ce879cc9b6bca2e78e7e9c3ac8149ed6fa09e2952db024a69d4faacbd358c53337f1d21bf2@172.19.0.3:30303?discport=0")
+admin.addPeer("enode://61a4a0f3e583cdb18c0aaf17e3d2e0254792541f0ce73187a45efdc92147a72d2d71c946b126bdfc29775b758d2c89ba6734d4887f5a5131d2d62d0ed5ac2d08@172.19.0.2:30303?discport=0")
+admin.addPeer("enode://6b5fc965bef7f7d85dda19b557b73fecb938f6ff04ff2f70b613d47f590ea2d62ad62513144e5318fc7390c645bc95155b5f495ba30560bebff2084a7cbac899@172.19.0.3:30303?discport=0")
 admin.addPeer("enode://a04bde56b45b5c969f40c9a487eb15969edcc27eb39ab86b30eb229c8fe934b18189c5a2f117ad711831bd644d7a0edd6c3c2d5cd14e57b82105c8a147731d48@172.19.0.4:30303?discport=0")
 admin.addPeer("enode://2c98d86a43b313ea635d462d6606ba46373a9e59168d772d95c7565cafa7fc528987ed93ed1ae1883d5ba74ac8151f140e0006d7c444b0539f50299e86ecfee8@172.19.0.5:30303?discport=0")
-
+```
