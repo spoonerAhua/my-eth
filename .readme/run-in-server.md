@@ -9,9 +9,10 @@ cd /my-eth
 
 ## 启动私链
 cd /my-eth
-nohup /my-eth/geth --nodiscover --identity "private etherum" --datadir /my-eth/data --port "30303" --networkid "96178"     \
+nohup /my-eth/geth --datadir /my-eth/data --port "30303" --networkid "96178"                                               \
+    --minerthreads 1 --nodiscover --identity "private etherum"                                                             \
     --rpc --rpcaddr 0.0.0.0  --rpcport 8545 --rpcapi "eth,net,web3,miner,admin,debug,txpool,personal" --rpccorsdomain "*"  \
-    --ws  --ws.addr  0.0.0.0 --ws.port 8546 --ws.api "eth,net,web3,miner,admin,debug,txpool,personal" --ws.origins     "*" \
+    --ws  --ws.addr  0.0.0.0 --ws.port 8546 --ws.api "eth,net,web3,miner,admin,debug,txpool,personal" --ws.origins    "*" \
     --graphql --graphql.corsdomain "*"    --graphql.vhosts "*"  \
     --allow-insecure-unlock &
 
