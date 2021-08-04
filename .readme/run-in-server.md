@@ -8,8 +8,8 @@ cd /my-eth
 
 ## 启动私链
 cd /my-eth
-nohup /my-eth/geth --datadir /my-eth/data --port "30303" --networkid "96178"                                               \
-    --miner.threads "1" --nodiscover --identity "private etherum"                                                          \
+nohup /my-eth/geth --datadir /my-eth/data --port "30303" --networkid "99854"                                               \
+    --miner.threads 1 --nodiscover --identity "private etherum"                                                          \
     --rpc --rpcaddr 0.0.0.0  --rpcport 8545 --rpcapi "eth,net,web3,miner,admin,debug,txpool,personal" --rpccorsdomain "*"  \
     --ws  --ws.addr  0.0.0.0 --ws.port 8546 --ws.api "eth,net,web3,miner,admin,debug,txpool,personal" --ws.origins    "*"  \
     --graphql --graphql.corsdomain "*"    --graphql.vhosts "*"  \
@@ -21,8 +21,16 @@ cd /my-eth
 tail -f nohup.out
 
 # 进入控制台
+```
 cd /my-eth
 /my-eth/geth attach ipc:/my-eth/data/geth.ipc
+./geth attach ipc:/my-eth1/data/geth.ipc
+./geth attach ws://39.105.18.23:8546
+./geth attach ws://39.105.153.126:8546
+./geth --exec "eth.blockNumber" attach ipc:/my-eth1/data/geth.ipc
+./geth --exec 'loadScript("/mnt/e/ethereum/my-eth/echo.js")' attach ipc:/my-eth1/data/geth.ipc
+
+```
 
 # 以太坊操作
 ```
@@ -32,6 +40,9 @@ miner.start()
 eth.accounts # 查看账户
 personal.listAccounts  # 查看账户
 eth.getBalance(eth.accounts[0]) # 查看账户余额
+eth.getBalance("0x752c9dD3E1e9Ca70708E42cc41C32d8E08707ac2") # 查看账户余额
+
+
 miner.setEtherbase(eth.accounts[0]) # 设置挖矿地址
 miner.start() # 启动挖矿
 miner.stop() # 停止挖矿

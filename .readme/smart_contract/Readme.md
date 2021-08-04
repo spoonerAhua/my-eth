@@ -1,7 +1,27 @@
-https://blog.csdn.net/sda1_hacker/article/details/104427270
-https://www.cnblogs.com/mhly/p/14024985.html
-发行Token https://www.jianshu.com/p/55908003cbbd
-Remix docker run -p 80:80 remixproject/remix-ide:latest
+# reminx
+http://remix.ethereum.org/
+
+Remix docker run -d -p 80:80 remixproject/remix-ide:latest
+
+# 发行Token 
+https://www.jianshu.com/p/55908003cbbd
+
+12345600000000,"my test token",8,"MyToken"
+
+# 参考
+- 以太坊中如何判断一个地址为合约账户地址 
+
+  https://www.jianshu.com/p/e034f093d372
+
+- https://blog.csdn.net/sda1_hacker/article/details/104427270
+- https://www.cnblogs.com/mhly/p/14024985.html
+- ERC20标准 
+
+  https://www.jianshu.com/p/496f8ba43036/
+
+- 如何从判断tx是ERC20交易 
+
+  https://stackoverflow.com/questions/52222758/erc20-tokens-transferred-information-from-transaction-hash
 
 npm install -g solc
 npm install -g solc@0.8.6
@@ -20,12 +40,12 @@ personal.unlockAccount(eth.accounts[0],"123456")
 
 token = contract.new(initializer)
 
-token.address   0x77556b45c1bf08ace4e628b39bd52eff2149cc46
+token.address   0xc15865b345b0bde666f716bbdb6a519df26bb615
 
 
 MyContract = eth.contract(abi)
 
-myContract = MyContract.at("0x77556b45c1bf08ace4e628b39bd52eff2149cc46")
+myContract = MyContract.at("0xc15865b345b0bde666f716bbdb6a519df26bb615")
 
 myContract.multiply.call(5)
 

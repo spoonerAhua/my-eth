@@ -27,7 +27,7 @@ docker exec -it geth3 bash
 # 启动私链
 ```
 docker exec -it geth1 bash
-/geth_bin/geth --nodiscover --identity "private etherum" --datadir /geth_data --port "30303" --networkid "96178"    \
+/geth_bin/geth --nodiscover --identity "private etherum" --datadir /geth_data --port "30303" --networkid "99854"    \
                --rpc --rpcaddr 0.0.0.0 --rpcport 8545 --rpccorsdomain "*" --rpcapi "eth,net,web3,miner,admin,debug,txpool,personal" \
                --allow-insecure-unlock
 
@@ -66,7 +66,7 @@ eth.getBlock('latest') # 查询最新的区块
 eth.getTransaction(txNo) # 查询交易，根据交易号txNo，交易号是产生一个交易后返回的一串16进制字符。
 exit # 退出geth控制台
 personal.unlockAccount(eth.accounts[0],"123456") # 解锁账号
-eth.sendTransaction({from:eth.accounts[0],to:"0x64F5c3D36F51583d71AFab7FDf931C363D973c6b",value:web3.toWei(1,"ether")}) # 转账
+eth.sendTransaction({from:eth.accounts[0],to:"0x752c9dD3E1e9Ca70708E42cc41C32d8E08707ac2",value:web3.toWei(21,"ether")}) # 转账
 eth.syncing 查看同步状态
 web3.toWei(1,"ether")
 web3.fromWei(1,"ether")
