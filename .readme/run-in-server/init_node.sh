@@ -1,5 +1,5 @@
 # # 初始化
-/my-eth/build/bin/geth --datadir /my-eth/.utils/data init /my-eth/.utils/genesis.json
+/geth_bin/geth --datadir /my-eth/.utils/data init /geth_bin/genesis_sync.json
 
 # # 启动私链
 /my-eth/build/bin/geth --nodiscover --identity "private etherum" --datadir /my-eth/.utils/data --port "30303" --networkid "99854"    \
