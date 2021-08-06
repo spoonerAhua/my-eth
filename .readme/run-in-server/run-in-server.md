@@ -1,27 +1,38 @@
-## 初始化
-```
-cd /my-eth
-/my-eth/geth --datadir /my-eth/data init /my-eth/genesis.json
-```
+## 启动java
+java -jar web3j-app-1.0.0.jar
 
 ## 启动私链
 ```
+docker rm -f geth_pow
+rm -r /my-eth-data/
 cd /my-eth
-nohup /my-eth/geth --datadir /my-eth/data --port "30303" --networkid "99854"                                               \
-    --miner.threads 1 --nodiscover --identity "private etherum"                                                            \
-    --rpc --rpcaddr 0.0.0.0  --rpcport 8545 --rpcapi "eth,net,web3,miner,admin,debug,txpool,personal" --rpccorsdomain "*"  \
-    --ws  --ws.addr  0.0.0.0 --ws.port 8546 --ws.api "eth,net,web3,miner,admin,debug,txpool,personal" --ws.origins    "*"  \
-    --graphql --graphql.corsdomain "*"    --graphql.vhosts "*"  \
-    --allow-insecure-unlock &
+chmod 777 *
+
+docker run -d --cpuset-cpus="1-2" --restart always   --name geth_pow  \
+       -v /my-eth/:/my-eth/ -v /my-eth-data/:/my-eth-data/ -w /my-eth \
+       --ipc=host  --net host  -v /etc/localtime:/etc/localtime:ro    \
+       ubuntu:18.04 bash -c "/my-eth/run-chain.sh"
+
+docker logs -f  geth_pow
+docker exec -it geth_pow bash
+docker exec -it geth_pow ./geth attach ipc:/my-eth-data/geth.ipc
+
+cp node1-0x85564bfb7d913cc7ca84f3b325cdf239b950c3f5-39.105.18.23.json /my-eth-data/keystore/
+cp node2-0xc65bc7f6de6c366d48d531d57bb7f41d79a63a69-39.105.153.126.json /my-eth-data/keystore/
+miner.setEtherbase("0x85564bfb7d913cc7ca84f3b325cdf239b950c3f5")
+miner.setEtherbase("0xc65bc7f6de6c366d48d531d57bb7f41d79a63a69")
+
 ```
 
 ## 进入控制台
 ```
 cd /my-eth
-/my-eth/geth attach ipc:/my-eth/data/geth.ipc
+/my-eth/geth attach ipc:/my-eth-data/geth.ipc
 ./geth attach ipc:/my-eth1/data/geth.ipc
 ./geth attach ws://39.105.18.23:8546
 ./geth attach ws://39.105.153.126:8546
+./geth console ws://39.105.153.126:8546
+
 ./geth --exec "eth.blockNumber" attach ipc:/my-eth1/data/geth.ipc
 ./geth --exec 'loadScript("/mnt/e/ethereum/my-eth/echo.js")' attach ipc:/my-eth1/data/geth.ipc
 
@@ -36,10 +47,8 @@ miner.start()
 ## 添加节点
 ```
 admin.nodeInfo.enode
-admin.addPeer("enode://c1e5e0d2c5d690326c05346282a088fb96f3829d06d27b33a514a49f82247ffcf0573efdab67ec3019168cc58d892f1a3a4925e9baddc78b348c56a0f2466fa@39.105.153.126:30303?discport=0")
-admin.addPeer("enode://c1e5e0d2c5d690326c05346282a088fb96f3829d06d27b33a514a49f82247ffcf0573efdab67ec3019168cc58d892f1a3a4925e9baddc78b348c56a0f2466fa@172.21.117.53:30303?discport=0")
-admin.addPeer("enode://14e6185aedf049338abea9d5bfe50a59b2c32243590b2e0def43723b76555d4d4d0b5ffc4c4b5b6b50cd1291ad566e17d05752b9b54be8a27fdebad071cd28dc@39.105.18.23:30303?discport=0")
-admin.addPeer("enode://14e6185aedf049338abea9d5bfe50a59b2c32243590b2e0def43723b76555d4d4d0b5ffc4c4b5b6b50cd1291ad566e17d05752b9b54be8a27fdebad071cd28dc@172.21.117.54:30303?discport=0")
+admin.addPeer("enode://a6f47ef88878a3ce05451f350e40eb358915b263a5746a40963fd708c46b12fe1e10b2e316b221221be39781b576ed92f6648a040f609fb0c0a5d6017fbbaa47@39.105.18.23:30303")
+admin.addPeer("enode://131fed49e5e84db939635da0648c70753d5468e9ec7815fc4996a115cf3d539df67ece70f189589c45be5f47846157554caebf14911ea71a254f59943469a517@39.105.153.126:30303")
 ```
 
 ## 查看日志

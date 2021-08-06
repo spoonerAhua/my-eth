@@ -1,7 +1,9 @@
-# 以太坊POA
+# 以太坊POA文档
 - https://zoyi14.smartapps.cn/pages/note/index?slug=dcc9b6cb6722&origin=share&hostname=baiduboxapp&_swebfr=1
 - https://blog.csdn.net/weixin_44257754/article/details/107937890
+- https://blog.csdn.net/liuzhijun301/article/details/80784529
 
+# 以太坊POA文档
 ./geth --datadir /eth-poa/node1 account new
 ./geth --datadir /eth-poa/node1 init spooner.json
 ./geth --datadir /eth-poa/node1 --port 10303  --nodiscover  --networkid "36050"  --syncmode "full"     \
