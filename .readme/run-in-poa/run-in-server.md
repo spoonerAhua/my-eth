@@ -1,6 +1,15 @@
 ## 启动java
 java -jar web3j-app-1.0.0.jar
 
+## 启动bootnode
+```
+cd /my-eth
+./bootnode -genkey bootnode_test.key
+./bootnode -nodekey bootnode_test.key -addr 172.21.117.54:30303
+nohup ./bootnode -nodekey bootnode_test.key -addr 172.21.117.54:33333 &
+
+```
+
 ## 启动私链
 ```
 docker rm -f geth_pow
@@ -10,13 +19,14 @@ chmod 777 *
 
 docker run -d --cpuset-cpus="1-2" --restart always   --name geth_pow  \
        -v /my-eth/:/my-eth/ -v /my-eth-data/:/my-eth-data/ -w /my-eth \
-       --ipc=host  --net host  -v /etc/localtime:/etc/localtime:ro    \
+       --ipc=host  --net host -v /etc/localtime:/etc/localtime:ro    \
        ubuntu:18.04 bash -c "/my-eth/run-chain.sh"
 
 docker logs -f  geth_pow
 docker exec -it geth_pow bash
 docker exec -it geth_pow ./geth attach ipc:/my-eth-data/geth.ipc
 
+docker logs -f  geth_pow
 cp node1-0x85564bfb7d913cc7ca84f3b325cdf239b950c3f5-39.105.18.23.json /my-eth-data/keystore/
 cp node2-0xc65bc7f6de6c366d48d531d57bb7f41d79a63a69-39.105.153.126.json /my-eth-data/keystore/
 miner.setEtherbase("0x85564bfb7d913cc7ca84f3b325cdf239b950c3f5")
@@ -40,6 +50,9 @@ personal.unlockAccount(eth.accounts[0],"123456")
 miner.start()
 
 personal.newAccount("123456") 
+miner.setEtherbase("0x85564bfb7d913cc7ca84f3b325cdf239b950c3f5")
+miner.setEtherbase("0xc65bc7f6de6c366d48d531d57bb7f41d79a63a69")
+eth.coinbase
 miner.start()
 
 ```

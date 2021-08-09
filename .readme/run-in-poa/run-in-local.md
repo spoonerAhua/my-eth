@@ -9,10 +9,10 @@ docker rm -f geth_poa_1 geth_poa_2 geth_poa_3 geth_poa_4
 ```
 docker network create geth_network
 cd /mnt/e/_git-source/github.com/spoonerAhua/my-eth/build/bin
-docker run -it --name geth_poa_1 -e LANG=C.UTF-8 -p 10303:30303 -w /geth_bin -p 1545:8545 -p 1546:8546 -v $PWD:/geth_bin --network=geth_network ubuntu:18.04 bash
-docker run -it --name geth_poa_2 -e LANG=C.UTF-8 -p 20303:30303 -w /geth_bin -p 2545:8545 -p 2546:8546 -v $PWD:/geth_bin --network=geth_network ubuntu:18.04 bash
-docker run -it --name geth_poa_3 -e LANG=C.UTF-8 -p 30303:30303 -w /geth_bin -p 3545:8545 -p 3546:8546 -v $PWD:/geth_bin --network=geth_network ubuntu:18.04 bash
-docker run -it --name geth_poa_4 -e LANG=C.UTF-8 -p 40303:30303 -w /geth_bin -p 4545:8545 -p 4546:8546 -v $PWD:/geth_bin --network=geth_network ubuntu:18.04 bash
+docker run -it --name geth_poa_1 -e LANG=C.UTF-8 -p 10303:30303 -w /geth_bin -p 1545:8545 -p 1546:8546 -v /etc/localtime:/etc/localtime:ro -v $PWD:/geth_bin --network=geth_network ubuntu:18.04 bash
+docker run -it --name geth_poa_2 -e LANG=C.UTF-8 -p 20303:30303 -w /geth_bin -p 2545:8545 -p 2546:8546 -v /etc/localtime:/etc/localtime:ro -v $PWD:/geth_bin --network=geth_network ubuntu:18.04 bash
+docker run -it --name geth_poa_3 -e LANG=C.UTF-8 -p 30303:30303 -w /geth_bin -p 3545:8545 -p 3546:8546 -v /etc/localtime:/etc/localtime:ro -v $PWD:/geth_bin --network=geth_network ubuntu:18.04 bash
+docker run -it --name geth_poa_4 -e LANG=C.UTF-8 -p 40303:30303 -w /geth_bin -p 4545:8545 -p 4546:8546 -v /etc/localtime:/etc/localtime:ro -v $PWD:/geth_bin --network=geth_network ubuntu:18.04 bash
 
 apt update
 apt -y install iputils-ping net-tools
@@ -32,28 +32,32 @@ docker exec -it geth_poa_4 bash
 
 ```
 
+# 导入私钥
+```
+cd /mnt/e/_git-source/github.com/spoonerAhua/my-eth/build/bin
+docker exec -it geth_poa_1 bash
+cp /geth_bin/node1-0x85564bfb7d913cc7ca84f3b325cdf239b950c3f5-39.105.18.23.json   /geth_data/keystore/
+
+cd /mnt/e/_git-source/github.com/spoonerAhua/my-eth/build/bin
+docker exec -it geth_poa_2 bash
+cp /geth_bin/node2-0xc65bc7f6de6c366d48d531d57bb7f41d79a63a69-39.105.153.126.json /geth_data/keystore/
+
+cd /mnt/e/_git-source/github.com/spoonerAhua/my-eth/build/bin
+docker exec -it geth_poa_3 bash
+cp /geth_bin/node3-0xecf8f6463e2b7264f0b93cf5bb4319aab2cc6a31.json /geth_data/keystore/
+
+```
+
+
 # 启动私链
 ```
+cd /mnt/e/_git-source/github.com/spoonerAhua/my-eth/build/bin
 ./geth --datadir /geth_data --port "30303" --networkid "36050" --allow-insecure-unlock                                 \
     --miner.threads 1 --nodiscover --identity "private etherum" --graphql --graphql.corsdomain "*"  --graphql.vhosts "*"  \
     --rpc --rpcaddr 0.0.0.0 --rpcport 8545 --rpcapi "eth,net,web3,miner,admin,debug,txpool,personal" --rpccorsdomain "*" \
     --ws  --ws.addr 0.0.0.0 --ws.port 8546 --ws.api "eth,net,web3,miner,admin,debug,txpool,personal" --ws.origins    "*"
 
 ```
-
-# 导入私钥
-```
-docker exec -it geth_poa_1 bash
-cp /geth_bin/node1-0x85564bfb7d913cc7ca84f3b325cdf239b950c3f5-39.105.18.23.json   /geth_data/keystore/
-
-docker exec -it geth_poa_2 bash
-cp /geth_bin/node2-0xc65bc7f6de6c366d48d531d57bb7f41d79a63a69-39.105.153.126.json /geth_data/keystore/
-
-docker exec -it geth_poa_3 bash
-cp /geth_bin/node3-0xecf8f6463e2b7264f0b93cf5bb4319aab2cc6a31.json /geth_data/keystore/
-
-```
-
 
 # 进入控制台
 ```

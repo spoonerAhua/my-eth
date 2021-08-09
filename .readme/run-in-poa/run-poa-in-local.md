@@ -46,7 +46,7 @@ docker exec -it geth_poa_4 bash
     --rpc --rpcaddr 0.0.0.0 --rpcport 8545 --rpcapi "eth,net,web3,miner,admin,debug,txpool,personal" --rpccorsdomain "*"  \
     --ws  --ws.addr 0.0.0.0 --ws.port 8546 --ws.api "eth,net,web3,miner,admin,debug,txpool,personal" --ws.origins    "*"  \
     --unlock 0x85564bfb7d913cc7ca84f3b325cdf239b950c3f5 --password password.txt       \
-    --bootnodes "enode://f7a3a88cea5f66b636434f4346600b95ec3678cf2b213751e912400651eaf9c6d2f9384a1c151d78687ab0d9562d74415271976c796ef9f999ae195f66482ef4@172.19.0.5:0?discport=30303"
+    --bootnodes "enode://bdd774c9a3f211e0dba394b2238528a5cf24988a0a223b2a7efdb6242af54ef5315e5e0ab8b56e7eb73b32e5ab7ea2893f401db15570c56e8ba82f2249ed7091@172.19.0.5:0?discport=30303"
 
 // node 2
 ./geth --datadir /geth_data --port "30303" --networkid "36050" --allow-insecure-unlock --syncmode "full"                  \
@@ -54,7 +54,7 @@ docker exec -it geth_poa_4 bash
     --rpc --rpcaddr 0.0.0.0 --rpcport 8545 --rpcapi "eth,net,web3,miner,admin,debug,txpool,personal" --rpccorsdomain "*"  \
     --ws  --ws.addr 0.0.0.0 --ws.port 8546 --ws.api "eth,net,web3,miner,admin,debug,txpool,personal" --ws.origins    "*"  \
     --unlock 0xc65bc7f6de6c366d48d531d57bb7f41d79a63a69 --password password.txt       \
-    --bootnodes "enode://f7a3a88cea5f66b636434f4346600b95ec3678cf2b213751e912400651eaf9c6d2f9384a1c151d78687ab0d9562d74415271976c796ef9f999ae195f66482ef4@172.19.0.5:0?discport=30303"
+    --bootnodes "enode://bdd774c9a3f211e0dba394b2238528a5cf24988a0a223b2a7efdb6242af54ef5315e5e0ab8b56e7eb73b32e5ab7ea2893f401db15570c56e8ba82f2249ed7091@172.19.0.5:0?discport=30303"
 
 // node 3
 ./geth --datadir /geth_data --port "30303" --networkid "36050" --allow-insecure-unlock --syncmode "full"                  \
@@ -62,7 +62,7 @@ docker exec -it geth_poa_4 bash
     --rpc --rpcaddr 0.0.0.0 --rpcport 8545 --rpcapi "eth,net,web3,miner,admin,debug,txpool,personal" --rpccorsdomain "*"  \
     --ws  --ws.addr 0.0.0.0 --ws.port 8546 --ws.api "eth,net,web3,miner,admin,debug,txpool,personal" --ws.origins    "*"  \
     --unlock 0xecf8f6463e2b7264f0b93cf5bb4319aab2cc6a31 --password password.txt       \
-    --bootnodes "enode://f7a3a88cea5f66b636434f4346600b95ec3678cf2b213751e912400651eaf9c6d2f9384a1c151d78687ab0d9562d74415271976c796ef9f999ae195f66482ef4@172.19.0.5:0?discport=30303"
+    --bootnodes "enode://bdd774c9a3f211e0dba394b2238528a5cf24988a0a223b2a7efdb6242af54ef5315e5e0ab8b56e7eb73b32e5ab7ea2893f401db15570c56e8ba82f2249ed7091@172.19.0.5:0?discport=30303"
 
 
 ```
