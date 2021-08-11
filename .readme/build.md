@@ -1,7 +1,7 @@
 ## Git设置代理
 ```
-git config --global http.proxy  http://127.0.0.1:61172
-git config --global https.proxy https://127.0.0.1:61172
+git config --global http.proxy  http://127.0.0.1:63810
+git config --global https.proxy https://127.0.0.1:63810
 ```
 
 ## Git取消代理
